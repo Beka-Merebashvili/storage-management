@@ -1,8 +1,9 @@
 <div align="center">
   <br />
     <a href="https://youtu.be/lie0cr3wESQ" target="_blank">
-      <img src="public/readme/hero.png" alt="Project Banner">
+      <img src="public/readme/hero.png" alt="Project Banner" width="800">
     </a>
+  <br />
   <br />
 
   <div>
@@ -12,87 +13,121 @@
     <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
   </div>
 
-<h3 align="center">Storage and File Sharing Platform</h3>
+  <br />
 
+  <h1 align="center">🗄️ Storage and File Sharing Platform</h1>
 
-## 📋 <a name="table">Table of Contents</a>
+  <p align="center">
+    <strong>A modern, efficient storage management solution built with cutting-edge technologies</strong>
+  </p>
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
+  <br />
+</div>
 
+---
 
-## <a name="introduction">🤖 Introduction</a>
+## 📋 Table of Contents
 
-A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite Node SDK, utilizing advanced features for seamless file management.
+- [🤖 Introduction](#-introduction)
+- [⚙️ Tech Stack](#️-tech-stack)
+- [🔋 Features](#-features)
+- [🚀 Quick Start](#-quick-start)
 
+---
 
+## 🤖 Introduction
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+> **Transform the way you manage and share files**
 
-- React 19
-- Next.js 15
-- Appwrite
-- TailwindCSS
-- ShadCN
-- TypeScript
+A comprehensive storage management and file sharing platform that empowers users to **effortlessly upload, organize, and share files**. Built with the latest **Next.js 15** and the **Appwrite Node SDK**, this platform leverages advanced features to deliver a seamless file management experience.
 
-## <a name="features">🔋 Features</a>
+<div align="center">
+  <img src="https://img.shields.io/github/stars/Beka-Merebashvili/storage-management?style=social" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/Beka-Merebashvili/storage-management?style=social" alt="GitHub forks">
+  <img src="https://img.shields.io/github/issues/Beka-Merebashvili/storage-management" alt="GitHub issues">
+</div>
 
-👉 **User Authentication with Appwrite**: Implement signup, login, and logout functionality using Appwrite's authentication system.
+---
 
-👉 **FIle Uploads**: Effortlessly upload a variety of file types, including documents, images, videos, and audio, ensuring all your important data.
+## ⚙️ Tech Stack
 
-👉 **View and Manage Files**: Users can browse through their uploaded files stored in Appwrite storage, view on a new tab, rename file or delete.
+<div align="center">
+  
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **React** | 19 | Frontend Framework |
+| **Next.js** | 15 | Full-stack Framework |
+| **TypeScript** | Latest | Type Safety |
+| **Appwrite** | Latest | Backend Services |
+| **TailwindCSS** | Latest | Styling |
+| **ShadCN** | Latest | UI Components |
 
-👉 **Download Files**: Users can download their uploaded files giving them instant access to essential documents.
+</div>
 
-👉 **File Sharing**: Users can easily share their uploaded files with others, enabling collaboration and easy access to important content.
+---
 
-👉 **Dashboard**: Gain insights at a glance with a dynamic dashboard that showcases total and consumed storage, recent uploads, and a summary of files grouped by type.
+## 🔋 Features
 
-👉 **Global Search**: Users can quickly find files and shared content across the platform with a robust global search feature.
+### 🔐 **Authentication & Security**
+- **Robust User Authentication** - Secure signup, login, and logout with Appwrite's authentication system
 
-👉 **Sorting Options**: Organize files efficiently by sorting them by date, name, or size, making file management a breeze.
+### 📁 **File Management**
+- **📤 Multi-format File Uploads** - Support for documents, images, videos, and audio files
+- **👁️ File Viewing & Management** - Browse, view, rename, and organize uploaded files
+- **💾 Instant Downloads** - Quick access to your essential documents
+- **🔗 Easy File Sharing** - Seamless collaboration through file sharing capabilities
 
-👉 **Modern Responsive Design**: A fresh and minimalist UI that emphasizes usability, ensuring a clean aesthetic across all devices.
+### 📊 **Dashboard & Analytics**
+- **📈 Dynamic Dashboard** - Real-time insights into storage usage and recent activity
+- **📋 File Summary** - Organized breakdown of files by type and category
 
-and many more, including the latest **React 19**, **Next.js 15** and **Appwrite** features alongside code architecture and
-reusability
+### 🔍 **Search & Organization**
+- **🌐 Global Search** - Powerful search across all files and shared content
+- **📑 Smart Sorting** - Organize by date, name, or size for efficient management
 
-## <a name="quick-start">🤸 Quick Start</a>
+### 🎨 **User Experience**
+- **📱 Responsive Design** - Clean, modern interface optimized for all devices
+- **⚡ Performance Optimized** - Built with the latest React 19 and Next.js 15 features
 
-Follow these steps to set up the project locally on your machine.
+> **And much more!** Including advanced code architecture, reusability patterns, and cutting-edge web technologies.
 
-**Prerequisites**
+---
 
-Make sure you have the following installed on your machine:
+## 🚀 Quick Start
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+### Prerequisites
 
-**Cloning the Repository**
+Before you begin, ensure you have the following installed:
 
+<div align="center">
+
+| Requirement | Download Link |
+|-------------|---------------|
+| **Git** | [Download Git](https://git-scm.com/) |
+| **Node.js** | [Download Node.js](https://nodejs.org/en) |
+| **npm** | Included with Node.js |
+
+</div>
+
+### 🔧 Installation Steps
+
+#### 1️⃣ **Clone the Repository**
 ```bash
 git clone https://github.com/Beka-Merebashvili/storage-management.git
 cd storage_management_solution
 ```
 
-**Installation**
-
-Install the project dependencies using npm:
-
+#### 2️⃣ **Install Dependencies**
 ```bash
 npm install
 ```
 
-**Set Up Environment Variables**
+#### 3️⃣ **Environment Configuration**
 
-Create a new file named `.env.local` in the root of your project and add the following content:
+Create a `.env.local` file in your project root:
 
 ```env
+# Appwrite Configuration
 NEXT_PUBLIC_APPWRITE_ENDPOINT="https://cloud.appwrite.io/v1"
 NEXT_PUBLIC_APPWRITE_PROJECT=""
 NEXT_PUBLIC_APPWRITE_DATABASE=""
@@ -102,14 +137,23 @@ NEXT_PUBLIC_APPWRITE_BUCKET=""
 NEXT_APPWRITE_KEY=""
 ```
 
-Replace the values with your actual Appwrite credentials. You can obtain these credentials by signing up &
-creating a new project on the [Appwrite website](https://appwrite.io/).
+> 💡 **Need Appwrite credentials?** Sign up at [appwrite.io](https://appwrite.io/) and create a new project.
 
-**Running the Project**
-
+#### 4️⃣ **Launch the Application**
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+🎉 **Success!** Open [http://localhost:3000](http://localhost:3000) to view your application.
 
+---
+
+<div align="center">
+  
+  **⭐ Don't forget to star this repository if you found it helpful!**
+  
+  <br />
+  
+  **Built with ❤️ by [Beka Merebashvili](https://github.com/Beka-Merebashvili)**
+
+</div>
