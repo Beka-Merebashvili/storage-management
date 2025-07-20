@@ -46,7 +46,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
     setIsDropdownOpen(false);
     setAction(null);
     setName(file.name);
-    //   setEmails([]);
+    setEmails([]); 
   };
 
   const handleAction = async () => {
@@ -54,32 +54,64 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
     setIsLoading(true);
     let success = false;
 
-    const actions = {
-      rename: () =>
-        renameFile({ fileId: file.$id, name, extension: file.extension, path }),
-      share: () => updateFileUsers({ fileId: file.$id, emails, path }),
-      delete: () =>
-        deleteFile({ fileId: file.$id, bucketFileId: file.bucketFileId, path }),
-    };
+    try {
+      const actions = {
+        rename: () =>
+          renameFile({ fileId: file.$id, name, extension: file.extension, path }),
+        share: () => updateFileUsers({ fileId: file.$id, emails, path }),
+        delete: () =>
+          deleteFile({ fileId: file.$id, bucketFileId: file.bucketFileId, path }),
+      };
 
-    success = await actions[action.value as keyof typeof actions]();
+      success = await actions[action.value as keyof typeof actions]();
 
-    if (success) closeAllModals();
-
-    setIsLoading(false);
+      if (success) {
+        closeAllModals();
+      }
+    } catch (error) {
+      console.error("Error performing action:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleRemoveUser = async (email: string) => {
     const updatedEmails = emails.filter((e) => e !== email);
 
-    const success = await updateFileUsers({
-      fileId: file.$id,
-      emails: updatedEmails,
-      path,
-    });
+    try {
+      const success = await updateFileUsers({
+        fileId: file.$id,
+        emails: updatedEmails,
+        path,
+      });
 
-    if (success) setEmails(updatedEmails);
-    closeAllModals();
+      if (success) {
+        setEmails(updatedEmails);
+      }
+    } catch (error) {
+      console.error("Error removing user:", error);
+    }
+    // closeAllModals()-ს აღარ ვიძახებთ აქ, რადგან ეს იხურავდა მოდალს
+  };
+
+  // ცალკე ფუნქცია dropdown item-ების დასაკლიკად
+  const handleDropdownItemClick = (actionItem: ActionType) => {
+    setAction(actionItem);
+
+    if (["rename", "share", "delete", "details"].includes(actionItem.value)) {
+      setIsModalOpen(true);
+      setIsDropdownOpen(false); // dropdown-ის დახურვა
+    }
+  };
+
+  // Dialog-ის დახურვისთვის
+  const handleDialogClose = (open: boolean) => {
+    setIsModalOpen(open);
+    if (!open) {
+      setAction(null);
+      setName(file.name);
+      setIsLoading(false);
+    }
   };
 
   const renderDialogContent = () => {
@@ -120,7 +152,11 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
             <Button onClick={closeAllModals} className="modal-cancel-button">
               Cancel
             </Button>
-            <Button onClick={handleAction} className="modal-submit-button">
+            <Button 
+              onClick={handleAction} 
+              className="modal-submit-button"
+              disabled={isLoading}
+            >
               <p className="capitalize">{value}</p>
               {isLoading && (
                 <Image
@@ -139,7 +175,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
   };
 
   return (
-    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+    <Dialog open={isModalOpen} onOpenChange={handleDialogClose}>
       <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
         <DropdownMenuTrigger className="shad-no-focus">
           <Image
@@ -158,17 +194,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
             <DropdownMenuItem
               key={actionItem.value}
               className="shad-dropdown-item"
-              onClick={() => {
-                setAction(actionItem);
-
-                if (
-                  ["rename", "share", "delete", "details"].includes(
-                    actionItem.value,
-                  )
-                ) {
-                  setIsModalOpen(true);
-                }
-              }}
+              onClick={() => handleDropdownItemClick(actionItem)}
             >
               {actionItem.value === "download" ? (
                 <Link
